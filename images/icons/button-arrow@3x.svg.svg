@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="21px" viewBox="0 0 40 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>button-arrow@3x</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-Landscape" transform="translate(-668.000000, -425.000000)" stroke="#B2B2B2" stroke-width="2">
+            <g id="button-arrow" transform="translate(668.500000, 426.000000)">
+                <path d="M37.2712,9.8162 L0.0702,9.8162" id="Stroke-16"></path>
+                <polyline id="Stroke-17" points="28.6711 19.238 38.0931 9.816 28.6711 0.394"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

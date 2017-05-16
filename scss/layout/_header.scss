@@ -1,0 +1,131 @@
+#header{
+  padding: 20px 0 20px;
+  @extend %clearfix;
+  border-bottom: 1px solid $light-gray;
+  margin-bottom: 35px;
+  @extend transition;
+  @include media('<phone') {
+    padding-bottom: 17px;
+    margin-bottom: 0;
+  }
+}
+body.sticky{
+  margin-top: 120px;
+  #header{
+    padding: 5px 0;
+    background:$white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+}
+
+.logo{
+  float: left;
+  margin-left: -15px;
+  @include media('<widescreen') { 
+    margin-left: 0;
+  }
+  @include media('<phone') {
+    max-height: 27px;
+  }
+}
+/* Hamburger Menu */
+.McButton {
+  margin-right: -15px;
+  z-index: 10;
+  $bar-w: 26px;
+  $bar-h: 3px;
+  $bar-color: $green;
+  position: absolute;
+  top: 8px;
+  right: 0;
+  @include media('<phone') {
+    $bar-w: 20px;
+    top: 5px;
+  }
+  margin-left: -($bar-w /2);
+  /* margin-top: -($bar-w /2); */
+  width: $bar-w;
+  height: ($bar-w *3) /4;
+  cursor: pointer;
+  @include media('<widescreen') {
+    margin-right: 25px;
+
+  }
+
+  b {
+    position: absolute;
+    left: 0;
+    width: $bar-w;
+    height: $bar-h;
+    background-color: $bar-color;
+    &:nth-child(1) {
+      top: 0;
+    }
+    &:nth-child(2) {
+      top: 50%;
+    }
+    &:nth-child(3) {
+      top: 100%;
+    }
+  }
+}
+/* McButton */
+
+.top-menu{
+  .drop{
+    padding-right: 40px;
+    padding-top: 7px;
+    position: relative;
+    left: 100%;
+    display: inline-block;
+    opacity: 0;
+    z-index: 2;
+    @extend %transition;
+    ul{
+      @extend %listreset;
+    }
+    li{
+      display: inline-block;
+      
+      margin: 0 10px;
+      @extend .underlineAnchor;
+    }
+  }
+  &.active .drop{
+    left: 0;
+    opacity: 1;
+  }
+  @include media('<tablet') {
+    .drop{
+      position: fixed;
+      left: -100%;
+      width: 100%;
+      top: 72px;
+      font-size: 18px;
+      bottom: 0;
+      background: $white;
+      a{
+        color:$green;
+        display: block;
+        padding: 10px 15px;
+      }
+      li{
+        display: block;
+        width: 100%;
+      }
+    }
+    &.active .drop{
+      left: 0;
+    }
+  }
+}
+
+.title-page{
+  h1, .h1{
+    color: $green;
+  }
+}

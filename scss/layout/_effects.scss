@@ -1,0 +1,121 @@
+
+.underlineAnchor{/*on 'anchor' holder*/
+  text-decoration: none;
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    margin-bottom: -10px;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    border-bottom: 4px solid $green;
+    transition: 0.4s;
+  }
+  &:hover:after {
+    width: 100%;
+  }
+}
+
+.back{
+  margin-top: 30px;
+  display: inline-block;
+  &:after{
+    content: '';
+    display: inline-block;
+    width: 25px;
+    height: 14px;
+    vertical-align: middle;
+    background: url(images/icons/button-arrow@3x.svg.svg) no-repeat;
+    background-size: 100%;
+    @extend .moveArrowX;
+  }
+  &:hover{
+    &:after{
+      background-image: url(images/icons/button-arrow-hover@3x.svg.svg);
+    }
+  }
+}
+//https://codepen.io/marcoweb/pen/rVraPZ
+@-webkit-keyframes bounce-arrowY {
+  0%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(10px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
+
+@-moz-keyframes bounce-arrowY {
+  0%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(10px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
+
+@keyframes bounce-arrowY {
+  0%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(10px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
+@-webkit-keyframes bounce-arrowX {
+  0%{
+    transform: translateX(0);
+  }
+  50%{
+    transform: translateX(10px);
+  }
+  100%{
+    transform: translateX(0px);
+  }
+}
+
+@-moz-keyframes bounce-arrowX {
+  0%{
+    transform: translateX(0);
+  }
+  50%{
+    transform: translateX(10px);
+  }
+  100%{
+    transform: translateX(0px);
+  }
+}
+
+@keyframes bounce-arrowX {
+  0%{
+    transform: translateX(0);
+  }
+  50%{
+    transform: translateX(10px);
+  }
+  100%{
+    transform: translateX(0px);
+  }
+}
+.moveArrowY{
+  -webkit-animation: bounce-arrowY 2s infinite ease-in-out;
+  -moz-animation:    bounce-arrowY 2s infinite ease-in-out;
+  -o-animation:      bounce-arrowY 2s infinite ease-in-out;
+  animation:         bounce-arrowY 2s infinite ease-in-out;
+}
+.moveArrowX{
+  -webkit-animation: bounce-arrowX 2s infinite ease-in-out;
+  -moz-animation:    bounce-arrowX 2s infinite ease-in-out;
+  -o-animation:      bounce-arrowX 2s infinite ease-in-out;
+  animation:         bounce-arrowX 2s infinite ease-in-out;
+}

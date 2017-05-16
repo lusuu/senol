@@ -1,0 +1,126 @@
+#footer{
+	font-size: 12px;
+	font-weight: 400;
+	.container{
+		background: $charcoal;
+	}
+	.info{
+		background:$black;
+		padding-top: 10px;
+		padding-left: 70px;
+	}
+	address{
+		color: $white;
+	}
+	.info, .footer-menu {
+		padding-top: 30px;
+	}
+	.copy {
+		padding-bottom: 30px;
+		a {
+			border-bottom: 1px solid $dark-gray;
+			color: $dark-gray;
+		}
+		span + span{
+			&:before{
+				content: " | ";
+			}
+		}
+	}
+	.footer-menu{
+		ul{
+			@extend %listreset;
+			display: flex;
+			justify-content:space-around;
+		}
+		li{
+			display: inline-block;
+			@extend .underlineAnchor;
+			&:after {
+				border-bottom: 1px solid $white;
+			}
+			a{
+				color: $white;
+				display: block;
+			}
+		}
+	}
+	@include media('<desktop') {
+		.pull-right{
+			float: none !important;
+		}
+		.footer-menu{
+			padding-bottom: 10px;
+		}
+		.info{
+			padding: 15px;
+		}
+	}
+	@include media('<phone') {
+		address {
+			margin-bottom: 30px;
+		}
+		.footer-menu{
+			padding: 20px;
+			ul{
+				display: block;
+			}
+			li{
+				display: block;
+				margin-bottom: 13px;
+			}
+		}
+		.info{
+			span{
+				display: block;
+				+ span{
+					&:before{
+						content: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+/*footer at bottom*/
+html, body {
+	height: 100%;
+	margin: 0;
+}
+#wrapper {
+	min-height: 100%;
+	padding: 0 0 132px;
+	/* Equal to height of footer */
+	/* But also accounting for potential margin-bottom of last child */
+	margin-bottom: -132px;
+}
+#footer{
+	height: 132px;
+}
+
+#toTop{
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	opacity: 0;
+	transition: all .3s ease-in;
+	&:before{
+		content: '';
+		display: block;
+		height: 25px;
+		width: 14px;
+		margin: 0 auto 5px;
+		background: url(images/icons/back-to-top@3x.svg.svg) no-repeat;
+		background-size: 100%;
+		@extend .moveArrowY;
+	}
+	&:hover{
+		&:before{
+			background-image:  url(images/icons/back-to-top-hover@3x.svg.svg);
+		}
+	}
+	&.active{
+		opacity: 1;
+	}
+}

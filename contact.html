@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Contact</title>
+	<script src="js/jquery-2.1.3.min.js"></script>
+	<script src="js/velocity.min.js"></script>
+	<script src="js/masonry.pkgd.min.js"></script>
+	<script src="js/slick.min.js" defer></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLDCsz-THH4fonGLd5t-Za1ZiwSNeJfao&callback=initMap"></script>
+	<script src="js/jquery.main.js" defer></script>
+	<link media="all" rel="stylesheet" href="css/wpcf7.css" type="text/css"> <!-- remove -->
+	<link media="all" rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+	<div id="wrapper">
+		<header id="header">
+			<div class="container">
+				<div class="row">
+					<div class="logo col-md-3"><a href="/"><img src="images/senol logo/senol-logo.png" alt="senol"></a></div>
+					<div class="top-menu col-md-9 text-right">
+						<!-- Hamburger Menu -->
+						<a class="McButton" data="hamburger-menu">
+							<b></b>
+							<b></b>
+							<b></b>
+						</a>
+						<div class="drop">
+							<ul>
+								<li><a href="#">About Us</a></li>
+								<li><a href="#">Team</a></li>
+								<li><a href="#">Projects</a></li>
+								<li><a href="#">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main id="main" role="main">
+			<div class="title-page">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-md-6 col-md-offset-2">
+							<h1>Contact</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+			<section class="presentation">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-lg-10 col-lg-offset-1">
+							<div class="visible-map" id="map_canvas"  style="height: 350px;"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="content">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-md-5 col-md-offset-2">
+							<h2>Senol specialise in the delivery of innovative high-quality residential and commercial property solutions within Melbourne and its surrounds.</h2>
+							<p>Senol has expanded to include a dedicated, experienced and passionate team, bringing together the creative expertise and business intellect of in-house architects, planners, designers, builders and project managers. Our talented team are committed to producing innovative and cutting-edge architecture through design excellence.</p>
+						</div>
+						<div class="col-xs-12 col-md-4 col-md-offset-1">
+							<!-- cf7
+								<p>[text* your-name]<span class="labelcf7"> First Name*</span></p>
+								<p>[text* your-lname]<span class="labelcf7"> Last Name*</span></p>
+								<p>[email* your-email]<span class="labelcf7"> Email*</span></p>
+								<p>[number* your-phone]<span class="labelcf7"> Phone*</span></p>
+								<p>[text* your-message]<span class="labelcf7">Message</span></p>
+								<p>[checkbox* your-accept "I accept" ]<span class="labelcf7"> I accept the Terms & Conditions</span></p>
+								<p>[submit "Submit"]</p>
+							-->
+							<div role="form" class="wpcf7" dir="ltr">
+								<div class="screen-reader-response"></div>
+								<form action="#" method="post" class="wpcf7-form" novalidate="novalidate">
+									<p><span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false"></span><span class="labelcf7"> First Name*</span></p>
+									<p><span class="wpcf7-form-control-wrap your-lname"><input type="text" name="your-lname" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false"></span><span class="labelcf7"> Last Name*</span></p>
+									<p><span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false"></span><span class="labelcf7"> Email*</span></p>
+									<p><span class="wpcf7-form-control-wrap your-phone"><input type="number" name="your-phone" value="" class="wpcf7-form-control wpcf7-number wpcf7-validates-as-required wpcf7-validates-as-number" aria-required="true" aria-invalid="false"></span><span class="labelcf7"> Phone*</span></p>
+									<p><span class="wpcf7-form-control-wrap your-message"><input type="text" name="your-message" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false"></span><span class="labelcf7">Message</span></p>
+									<p><span class="wpcf7-form-control-wrap your-accept"><span class="wpcf7-form-control wpcf7-checkbox wpcf7-validates-as-required"><span class="wpcf7-list-item first last"><input type="checkbox" name="your-accept[]" value="I accept">&nbsp;<span class="wpcf7-list-item-label">I accept</span></span></span></span><span class="labelcf7"> I accept the Terms &amp; Conditions</span></p>
+									<p><input type="submit" value="Submit" class="wpcf7-form-control wpcf7-submit"><img class="ajax-loader" src="http://gucci.pirise.com/wp-content/plugins/contact-form-7/images/ajax-loader.gif" alt="Sending ..." style="visibility: hidden;"></p>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+	</div>
+	<footer id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-7 footer-menu pull-right">
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">Team</a></li>
+						<li><a href="#">Projects</a></li>
+						<li><a href="#">Contact</a></li>
+						<li><a href="#">Privacy</a></li>
+						<li><a href="#">Legal</a></li>
+					</ul>
+				</div>
+				<div class="col-md-5 info pull-right">
+					<address>
+						<span>141-143 Leicester St, Carlton 3053,</span> <span>Melbourne, AUSTRALIA</span>
+					</address>
+					<div class="copy">
+						<span>Copyright Senol 2016</span> <span>Website by <a href="#">Yoke</a></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<a href="#" id="toTop">
+		<span>Top</span>
+	</a>
+</body>
+</html>
+
