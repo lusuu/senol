@@ -37,6 +37,9 @@ $media-expressions: (
 @import 'vendors/normalize';
 @import 'vendors/slick';
 @import 'vendors/slick-theme';
+@import 'vendors/jquery.fancybox';
+@import 'vendors/jquery.fancybox-thumbs';
+@import 'vendors/forms/materialize';
 
 
 @import 'base/variables';
@@ -48,15 +51,14 @@ $media-expressions: (
 @import 'base/forms';
 @import 'base/wp-reset';
 @import 'base/typography';
+@import 'layout/fancybox.theme';
 @import 'layout/effects';
 @import 'layout/header';
 @import 'layout/footer';
 @import 'pages/home';
 @import 'pages/page';
 @import 'pages/grid';
-@import 'pages/404';
-@import 'pages/about';
-
+@import 'pages/contact';
 
 
 .container{

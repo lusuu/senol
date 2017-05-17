@@ -2,16 +2,23 @@
 	margin-bottom: 70px;
 	.img-holder{
 		position: relative;
-
 		&:before{
 			content: '';
 			position: absolute;
 			width: 2px;
 			height: 100px;
 			bottom: -50px;
-			left: 100px;
-			background:#f00;
+			left: 10.2%;
+			background: $black;
+			@include media('<tablet') {
+				height: 50px;
+				width: 1px;
+				bottom: -25px;
+			}
 		}
+	}
+	@include media('<tablet') {
+		margin-bottom: 40px;
 	}
 }
 figure { 
@@ -29,6 +36,7 @@ figure {
 		width: 375px; 
 		padding: 0 40px 40px 0;
 		margin-bottom: 10px;
+		img{max-width: 100%}
 		&:nth-child(2n){
 			transform: translateX(125px);
 			right: 0;
@@ -39,6 +47,15 @@ figure {
 				right: auto;
 				left: inherit !important;
 			}
+		}
+		@include media('<desktop') {
+			right: auto;
+			left: inherit !important;
+			padding-right: 0;
+			padding-bottom: 15px;
+		}
+		@include media('<phone') {
+			max-width: 100%;
 		}
 		a{
 			&:hover{
@@ -106,6 +123,25 @@ figure {
 	.title-grid{
 		text-align: left;
 		padding: 0 0 0 100px;
-		margin-bottom: 100px;
+		margin-bottom: 50px;
+		@include media('<desktop') {
+			padding: 0;
+		}
+		@include media('<phone') {
+			max-width: 100%;
+		}
+	}
+}
+.grid-projects{
+	.title-grid{
+		padding-left: 10%;
+	}
+}
+.grid{
+	.title-grid{
+		padding: 0;
+	}
+	.img-holder{
+		pointer-events:none;
 	}
 }

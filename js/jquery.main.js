@@ -7,22 +7,24 @@ jQuery(()=>{
   upScroll();
   teamGrid();
   projectsGrid();
-  if (jQuery(".map").length>0){
+  gallery();
+  if (jQuery(".visible-map").length>0){
     googleMap();
   }
   stickyHeader();
+  formTest();
 })
 
 
 function hamburgerMenu(){
 
-  var McButton = $("[data=hamburger-menu]");
+  var McButton = jQuery("[data=hamburger-menu]");
   var McBar1 = McButton.find("b:nth-child(1)");
   var McBar2 = McButton.find("b:nth-child(2)");
   var McBar3 = McButton.find("b:nth-child(3)");
 
   McButton.click( function() {
-    $(this).toggleClass("active").closest(".top-menu").toggleClass("active");
+    jQuery(this).toggleClass("active").closest(".top-menu").toggleClass("active");
 
     if (McButton.hasClass("active")) {
       McBar1.velocity({ top: "50%" }, {duration: 200, easing: "swing"});
@@ -63,13 +65,13 @@ function homeSlider(){
     autoplay: true,
     autoplaySpeed: 4000,
   });
-  var totalSlides = $('.slider-home').find(".item").length;
-  $('.slider-home').append('<div class="slideNumber"><span class="current">01</span><span class="total">' 
+  var totalSlides = jQuery('.slider-home').find(".item").length;
+  jQuery('.slider-home').append('<div class="slideNumber"><span class="current">01</span><span class="total">' 
     + printZero(totalSlides) 
     + '</span></div>');
-  $('.slider-home').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-    $('.slider-home .total').text( printZero(slick.slideCount));
-    $('.slider-home .current').text( printZero(nextSlide + 1));
+  jQuery('.slider-home').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+    jQuery('.slider-home .total').text( printZero(slick.slideCount));
+    jQuery('.slider-home .current').text( printZero(nextSlide + 1));
   });
 
   function printZero(num){
@@ -88,45 +90,42 @@ function upScroll(){
     }
   }
   toTop.click(function(){
-    $("html, body").animate({ scrollTop: 0 }, "slow");
+    jQuery("html, body").animate({ scrollTop: 0 }, "slow");
     return false;
   })
 }
 
 function teamGrid(){
-  var masonary = null;
-  $(window).load(function () {
-    /*if (window.matchMedia('(min-width: 768)').matches){*/
-      if (true){
-        masonary = $('.grid').masonry({
-          itemSelector: '.grid-item',
-          columnWidth: 375
-        });
-      } else {
-        console.log("false")
-        if (masonary != null)
-          masonary.masonry('destroy')
-      }
-    })
+  var masonary = jQuery('.grid');
+  jQuery(window).load(function () {
+    if (window.matchMedia('(max-width: 768)').matches){
+      masonary.masonry('destroy')
+    } else {
+      masonary.masonry({
+        itemSelector: '.grid-item',
+        columnWidth: 375
+      });
+    }
+  })
 };
 
-$( window ).resize(function() {
+jQuery( window ).resize(function() {
   teamGrid();
 });
 
 
 function projectsGrid(){
   var masonary = null;
-  $(window).load(function () {
+  jQuery(window).load(function () {
     if (true){
-      masonary = $('.grid-projects').masonry({
+      masonary = jQuery('.grid-projects').masonry({
         itemSelector: '.grid-item',
         columnWidth: 430
       });
     } else {
       console.log("false")
       if (masonary != null)
-        masonary.masonry('destroy')
+        masonary.masonry('destroy');
     }
   })
 }
@@ -173,4 +172,29 @@ function stickyHeader(){
       jQuery("body").removeClass("sticky");
     }
   }
+}
+
+function gallery(){
+  jQuery(document).ready(function() {
+    jQuery(".grid-projects .img-holder").fancybox({
+      prevEffect  : 'none',
+      nextEffect  : 'none',
+      helpers : {
+        title : {
+          type: 'outside'
+        },
+        thumbs  : {
+          width : 50,
+          height  : 50
+        }
+      }
+    });
+  });
+}
+
+function formTest(){
+  jQuery(".wpcf7-form input[type=submit]").click(function(e){
+    e.preventDefault();
+    jQuery(".wpcf7-validation-errors").show();
+  })
 }

@@ -1,0 +1,62 @@
+.fancybox-overlay{
+	background:$white;
+}
+.fancybox-close{
+	background:url(images/icons/close@3x.svg.svg);
+	background-size: 100%;
+	right: 15px;
+	top: -35px;
+	width: 21px;
+	height: 21px;
+}
+.fancybox-opened .fancybox-skin{
+	box-shadow:none;
+	background:$white;
+}
+.fancybox-title{
+	color: $green;
+	position: absolute;
+	top: -33px;
+	left: 120px;
+}
+.fancybox-nav{
+	left: 15px;
+	right: auto;
+	opacity: 1;
+	width: 35px;
+	height: 20px;
+	top: -27px;
+	//background:#f00;
+	span{
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		visibility: visible;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		background-size: 100%;
+	}
+}
+.fancybox-next{
+	transform: translateX(75%);
+	span{
+		background-image:url(images/icons/next-arrow@3x.svg.svg);
+	}
+	&:hover{
+		span{
+			background-image:url(images/icons/next-arrow-hover@3x.svg.svg);
+		}
+	}
+}
+.fancybox-prev{
+	transform: translateX(-50%);
+	span{
+		background-image:url(images/icons/prev-arrow@3x.svg.svg);
+	}
+	&:hover{
+		span{
+			background-image:url(images/icons/prev-arrow-hover@3x.svg.svg);
+		}
+	}
+}
