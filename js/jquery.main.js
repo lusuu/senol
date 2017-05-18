@@ -15,6 +15,10 @@ jQuery(()=>{
   formTest();
 })
 
+jQuery( window ).resize(function() {
+  teamGrid();
+  gallery();
+});
 
 function hamburgerMenu(){
 
@@ -74,21 +78,22 @@ function homeSlider(){
     jQuery('.slider-home .current').text( printZero(nextSlide + 1));
   });
 
-  function printZero(num){
-    return (num < 10) ?("0" + num) : num;
-  }
+}
+function printZero(num){
+  return (num < 10) ?("0" + num) : num;
 }
 
 function upScroll(){
   var toTop = jQuery("#toTop");
-  window.onscroll = function() {
-    var scrolled = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrolled > window.innerWidth / 3) {
-      toTop.addClass("active");
-    } else {
-      toTop.removeClass("active");
-    }
-  }
+  document.addEventListener("scroll", 
+    function() {
+      var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrolled > window.innerWidth / 3) {
+        toTop.addClass("active");
+      } else {
+        toTop.removeClass("active");
+      }
+    });
   toTop.click(function(){
     jQuery("html, body").animate({ scrollTop: 0 }, "slow");
     return false;
@@ -109,9 +114,6 @@ function teamGrid(){
   })
 };
 
-jQuery( window ).resize(function() {
-  teamGrid();
-});
 
 
 function projectsGrid(){
@@ -176,21 +178,40 @@ function stickyHeader(){
 
 function gallery(){
   jQuery(document).ready(function() {
-    jQuery(".grid-projects .img-holder").fancybox({
-      prevEffect  : 'none',
-      nextEffect  : 'none',
-      helpers : {
-        title : {
-          type: 'outside'
-        },
-        thumbs  : {
-          width : 50,
-          height  : 50
+    if (window.matchMedia("screen and (min-width: 768px)").matches) {
+       jQuery(".grid-projects .img-holder").fancybox({
+        prevEffect  : 'none',
+        nextEffect  : 'none',
+        helpers : {
+          title : {
+            type: 'outside'
+          },
+          thumbs  : {
+            width : 50,
+            height  : 50
+          }
         }
-      }
-    });
+      });
+    } else {
+      var gall =jQuery(".grid-projects .img-holder").fancybox({
+        prevEffect  : 'none',
+        nextEffect  : 'none',
+        helpers : {
+          title : {
+            type: 'outside'
+          }
+        },
+        beforeShow : function() {
+          this.title = (this.title ? '<span class="title">' + this.title + '</span>' : '') + ' <span class="num">' + printZero(this.index + 1) + ' | ' + printZero(this.group.length) + ' </span>';
+        } // beforeSho
+      });
+    }
   });
 }
+
+
+
+
 
 function formTest(){
   jQuery(".wpcf7-form input[type=submit]").click(function(e){

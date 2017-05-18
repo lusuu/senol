@@ -2536,7 +2536,7 @@ textarea.materialize-textarea + label:after {
 }
 
 .input-field input[type=search]:focus {
-  background-color: #fff;
+  background-color: #e5e5e5;
   border: 0;
   box-shadow: none;
   color: #444;
@@ -2881,8 +2881,8 @@ form p:last-child {
   height: 13px;
   border-top: 2px solid transparent;
   border-left: 2px solid transparent;
-  border-right: 2px solid #fff;
-  border-bottom: 2px solid #fff;
+  border-right: 2px solid #e5e5e5;
+  border-bottom: 2px solid #e5e5e5;
   -webkit-transform: rotateZ(37deg);
   transform: rotateZ(37deg);
   -webkit-transform-origin: 100% 100%;
@@ -3223,7 +3223,7 @@ input[type=range] + .thumb.active {
 }
 
 input[type=range] + .thumb.active .value {
-  color: #fff;
+  color: #e5e5e5;
   margin-left: -1px;
   margin-top: 8px;
   font-size: 10px;
