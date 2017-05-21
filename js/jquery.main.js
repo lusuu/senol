@@ -11,9 +11,13 @@ jQuery(()=>{
   if (jQuery(".visible-map").length>0){
     googleMap();
   }
-  stickyHeader();
   formTest();
+  inputFocus();
 })
+
+$(window).load(function () {
+  stickyToTop();
+});
 
 jQuery( window ).resize(function() {
   teamGrid();
@@ -88,7 +92,7 @@ function upScroll(){
   document.addEventListener("scroll", 
     function() {
       var scrolled = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrolled > window.innerWidth / 3) {
+      if (scrolled > 10) {
         toTop.addClass("active");
       } else {
         toTop.removeClass("active");
@@ -165,13 +169,27 @@ function googleMap(){
 /***  /Google-map  ***/
 
 
-function stickyHeader(){
+function stickyToTop(){
+  var toTopBottomOriginal = parseInt($("#toTop").css("bottom"));
+  //console.log(toTopBottomOriginal);
   window.onscroll = function() {
     var scrolled = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrolled > 1) {
-      jQuery("body").addClass("sticky");
+    var ft = document.querySelector("#footer").getBoundingClientRect().top;
+    var ttb = document.querySelector("#toTop").getBoundingClientRect().bottom;
+    var delta = (ttb - ft) + 20;
+    //console.log("toTop  " +ttb+  "  ,footer " + ft+" , delta " + delta);
+    if (delta>0){
+      $("#toTop").css("bottom", parseInt($("#toTop").css("bottom")) + delta);
+      //console.info($("#toTop").css("bottom"));
+      //$("#toTop").css("bottom", toTopBottomOriginal + document.querySelector("#toTop").getBoundingClientRect().bottom - document.querySelector("#footer").getBoundingClientRect().top) ;
+      $("#toTop").addClass("move");
     } else {
-      jQuery("body").removeClass("sticky");
+     // console.info($("#toTop").css("bottom") , toTopBottomOriginal)
+      if(parseInt($("#toTop").css("bottom")) > toTopBottomOriginal){
+        $("#toTop").css("bottom", parseInt($("#toTop").css("bottom")) + delta);
+      } else{
+        $("#toTop").css("bottom", toTopBottomOriginal) ;
+      }
     }
   }
 }
@@ -179,43 +197,63 @@ function stickyHeader(){
 function gallery(){
   jQuery(document).ready(function() {
     if (window.matchMedia("screen and (min-width: 768px)").matches) {
-       jQuery(".grid-projects .img-holder").fancybox({
-        prevEffect  : 'none',
-        nextEffect  : 'none',
-        helpers : {
-          title : {
-            type: 'outside'
-          },
-          thumbs  : {
-            width : 50,
-            height  : 50
-          }
-        }
-      });
-    } else {
-      var gall =jQuery(".grid-projects .img-holder").fancybox({
-        prevEffect  : 'none',
-        nextEffect  : 'none',
-        helpers : {
-          title : {
-            type: 'outside'
-          }
+     jQuery(".grid-projects .img-holder").fancybox({
+      prevEffect  : 'none',
+      nextEffect  : 'none',
+      helpers : {
+        title : {
+          type: 'outside'
         },
-        beforeShow : function() {
-          this.title = (this.title ? '<span class="title">' + this.title + '</span>' : '') + ' <span class="num">' + printZero(this.index + 1) + ' | ' + printZero(this.group.length) + ' </span>';
+        thumbs  : {
+          width : 50,
+          height  : 50
+        }
+      }
+    });
+   } else {
+    var gall =jQuery(".grid-projects .img-holder").fancybox({
+      prevEffect  : 'none',
+      nextEffect  : 'none',
+      helpers : {
+        title : {
+          type: 'outside'
+        }
+      },
+      beforeShow : function() {
+        this.title = (this.title ? '<span class="title">' + this.title + '</span>' : '') + ' <span class="num">' + printZero(this.index + 1) + ' | ' + printZero(this.group.length) + ' </span>';
         } // beforeSho
       });
-    }
-  });
+  }
+});
 }
-
-
-
-
 
 function formTest(){
   jQuery(".wpcf7-form input[type=submit]").click(function(e){
     e.preventDefault();
     jQuery(".wpcf7-validation-errors").show();
+  })
+}
+
+function inputFocus(){
+
+  jQuery("input[type=checkbox]").addClass("filled-in");
+
+  jQuery(".wpcf7-list-item-label").click(function(){
+      var checkbox = jQuery(this).closest(".wpcf7-list-item").find("input[type=checkbox]");
+      if(checkbox[0].checked == false){
+        checkbox[0].checked=true;
+      } else {
+        checkbox[0].checked=false;
+      }
+  });
+
+  var input = jQuery("input[type=text],input[type=email],input[type=number]")
+  input.click(function(){
+    jQuery(this).closest(".input-field").find("label").addClass('active');
+  })
+  input.blur(function(){
+    if(jQuery(this).val() == ''){
+      jQuery(this).closest(".input-field").find("label").removeClass('active');
+    }
   })
 }

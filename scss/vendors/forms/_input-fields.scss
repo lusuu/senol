@@ -67,6 +67,7 @@ textarea.materialize-textarea {
   &:focus:not([readonly]) {
     border-bottom: 1px solid $input-focus-color;
     box-shadow: 0 1px 0 0 $input-focus-color;
+    color: $input-focus-color;
   }
 
   // Focused label style
@@ -102,6 +103,10 @@ textarea.materialize-textarea {
     content: attr(data-error);
     color: $input-error-color;
     opacity: 1;
+  }
+  &.wpcf7-not-valid{
+    border-bottom: $input-invalid-border;
+    color: $input-error-color;
   }
 
   // Full width label when using validate for error messages

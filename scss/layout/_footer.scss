@@ -17,6 +17,9 @@
 	}
 	.copy {
 		padding-bottom: 30px;
+		@include media('<desktop') {
+			padding-bottom: 0;
+		}
 		a {
 			border-bottom: 1px solid $dark-gray;
 			color: $dark-gray;
@@ -83,28 +86,13 @@
 	}
 }
 
-/*footer at bottom*/
-html, body {
-	height: 100%;
-	margin: 0;
-}
-#wrapper {
-	min-height: 100%;
-	padding: 0 0 132px;
-	/* Equal to height of footer */
-	/* But also accounting for potential margin-bottom of last child */
-	margin-bottom: -132px;
-}
-#footer{
-	height: 132px;
-}
 
 #toTop{
 	position: fixed;
-	bottom: 20px;
+	bottom: 20px;;
 	right: 20px;
 	opacity: 0;
-	transition: all .3s ease-in;
+	//transition: all .3s ease-in;
 	&:before{
 		content: '';
 		display: block;
@@ -122,5 +110,36 @@ html, body {
 	}
 	&.active{
 		opacity: 1;
+	}
+}
+
+/*footer at bottom*/
+html, body {
+	height: 100%;
+	margin: 0;
+}
+#wrapper {
+	min-height: 100%;
+	padding: 0 0 132px;
+	/* Equal to height of footer */
+	/* But also accounting for potential margin-bottom of last child */
+	margin-bottom: -132px;
+}
+#footer{
+	height: 132px;
+	.info{
+		height: 132px;
+	}
+}
+@include media('<phone') {
+	#wrapper {
+		padding-bottom: 380px;
+		margin-bottom: -380px;
+	}
+	#footer{
+		 min-height: 380px;
+		.info{
+			height: auto;
+		}
 	}
 }

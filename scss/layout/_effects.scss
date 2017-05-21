@@ -14,6 +14,9 @@
   }
   &:hover:after {
     width: 100%;
+    @include media('<desktop') {
+      width: 0;
+    }
   }
 }
 
@@ -32,10 +35,10 @@
     background-size: 100%;
     @extend .moveArrowX;
   }
-   @include media('<desktop') {
-      margin-top: 10px;
-      margin-bottom: 25px;
-   }
+  @include media('<desktop') {
+    margin-top: 10px;
+    margin-bottom: 25px;
+  }
   &:hover{
     &:after{
       background-image: url(images/icons/button-arrow-hover@3x.svg.svg);
@@ -120,14 +123,30 @@
   }
 }
 .moveArrowY{
-  -webkit-animation: bounce-arrowY 2s infinite ease-in-out;
-  -moz-animation:    bounce-arrowY 2s infinite ease-in-out;
-  -o-animation:      bounce-arrowY 2s infinite ease-in-out;
-  animation:         bounce-arrowY 2s infinite ease-in-out;
+  &:hover{
+    -webkit-animation: bounce-arrowY 1s infinite ease-in-out;
+    -moz-animation:    bounce-arrowY 1s infinite ease-in-out;
+    -o-animation:      bounce-arrowY 1s infinite ease-in-out;
+    animation:         bounce-arrowY 1s infinite ease-in-out;
+    @include media('<tablet') {
+      -webkit-animation:none;
+      -moz-animation:none;
+      -o-animation:none;
+      animation:none;
+    }
+  }
 }
 .moveArrowX{
-  -webkit-animation: bounce-arrowX 2s infinite ease-in-out;
-  -moz-animation:    bounce-arrowX 2s infinite ease-in-out;
-  -o-animation:      bounce-arrowX 2s infinite ease-in-out;
-  animation:         bounce-arrowX 2s infinite ease-in-out;
+  &:hover{
+    -webkit-animation: bounce-arrowX 1s infinite ease-in-out;
+    -moz-animation:    bounce-arrowX 1s infinite ease-in-out;
+    -o-animation:      bounce-arrowX 1s infinite ease-in-out;
+    animation:         bounce-arrowX 1s infinite ease-in-out;
+    @include media('<tablet') {
+      -webkit-animation:none;
+      -moz-animation:none;
+      -o-animation:none;
+      animation:none;
+    }
+  }
 }

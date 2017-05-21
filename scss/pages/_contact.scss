@@ -35,10 +35,14 @@ div.wpcf7-validation-errors{
 .input-field{
 	position: relative;
 	min-height: 40px;
+	color: $gray;
 	@extend %clearfix;
 	a {
 		text-decoration: underline;
 		/* border-bottom: 1px solid $gray; */
+	}
+	.label{
+		color: #000;
 	}
 }
 .input-field label {
@@ -50,6 +54,14 @@ div.wpcf7-validation-errors{
 	cursor: text;
 	transition: .2s ease-out;
 	text-align: initial;
+	&[for=accept]{
+		position: static;
+		padding-left: 4px;
+	//	font-size: inherit;
+	}
+	a{
+
+	}
 }
 input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
 	background-color: transparent;

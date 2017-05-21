@@ -10979,6 +10979,7 @@ input[type=search]:focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
   border-bottom: 1px solid #000;
   box-shadow: 0 1px 0 0 #000;
+  color: #000;
 }
 
 input:not([type]):focus:not([readonly]) + label,
@@ -11115,6 +11116,23 @@ textarea.materialize-textarea:focus.invalid + label:after {
   content: attr(data-error);
   color: #f58738;
   opacity: 1;
+}
+
+input:not([type]).wpcf7-not-valid,
+input[type=text].wpcf7-not-valid,
+input[type=password].wpcf7-not-valid,
+input[type=email].wpcf7-not-valid,
+input[type=url].wpcf7-not-valid,
+input[type=time].wpcf7-not-valid,
+input[type=date].wpcf7-not-valid,
+input[type=datetime].wpcf7-not-valid,
+input[type=datetime-local].wpcf7-not-valid,
+input[type=tel].wpcf7-not-valid,
+input[type=number].wpcf7-not-valid,
+input[type=search].wpcf7-not-valid,
+textarea.materialize-textarea.wpcf7-not-valid {
+  border-bottom: 1px solid #f58738;
+  color: #f58738;
 }
 
 input:not([type]).validate + label,
@@ -11467,7 +11485,7 @@ form p:last-child {
   /* checkbox aspect */
 }
 
-[type="checkbox"] + label {
+[type="checkbox"] ~ .wpcf7-list-item-label {
   position: relative;
   padding-left: 35px;
   cursor: pointer;
@@ -11485,8 +11503,8 @@ form p:last-child {
   /* IE10+ */
 }
 
-[type="checkbox"] + label:before,
-[type="checkbox"]:not(.filled-in) + label:after {
+[type="checkbox"] ~ .wpcf7-list-item-label:before,
+[type="checkbox"]:not(.filled-in) + .wpcf7-list-item-label:after {
   content: '';
   position: absolute;
   top: 0;
@@ -11500,14 +11518,14 @@ form p:last-child {
   transition: .2s;
 }
 
-[type="checkbox"]:not(.filled-in) + label:after {
+[type="checkbox"]:not(.filled-in) + .wpcf7-list-item-label:after {
   border: 0;
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
           transform: scale(0);
 }
 
-[type="checkbox"]:not(:checked):disabled + label:before {
+[type="checkbox"]:not(:checked):disabled + .wpcf7-list-item-label:before {
   border: none;
   background-color: rgba(0, 0, 0, 0.26);
 }
@@ -11522,7 +11540,7 @@ form p:last-child {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-[type="checkbox"]:checked + label:before {
+[type="checkbox"]:checked ~ .wpcf7-list-item-label:before {
   top: -4px;
   left: -5px;
   width: 12px;
@@ -11541,13 +11559,13 @@ form p:last-child {
           transform-origin: 100% 100%;
 }
 
-[type="checkbox"]:checked:disabled + label:before {
+[type="checkbox"]:checked:disabled + .wpcf7-list-item-label:before {
   border-right: 2px solid rgba(0, 0, 0, 0.26);
   border-bottom: 2px solid rgba(0, 0, 0, 0.26);
 }
 
 /* Indeterminate checkbox */
-[type="checkbox"]:indeterminate + label:before {
+[type="checkbox"]:indeterminate + .wpcf7-list-item-label:before {
   top: -11px;
   left: -12px;
   width: 10px;
@@ -11571,12 +11589,12 @@ form p:last-child {
   background-color: transparent;
 }
 
-[type="checkbox"].filled-in + label:after {
+[type="checkbox"].filled-in + .wpcf7-list-item-label:after {
   border-radius: 2px;
 }
 
-[type="checkbox"].filled-in + label:before,
-[type="checkbox"].filled-in + label:after {
+[type="checkbox"].filled-in + .wpcf7-list-item-label:before,
+[type="checkbox"].filled-in + .wpcf7-list-item-label:after {
   content: '';
   left: 0;
   position: absolute;
@@ -11585,7 +11603,7 @@ form p:last-child {
   z-index: 1;
 }
 
-[type="checkbox"].filled-in:not(:checked) + label:before {
+[type="checkbox"].filled-in:not(:checked) + .wpcf7-list-item-label:before {
   width: 0;
   height: 0;
   border: 3px solid transparent;
@@ -11599,16 +11617,16 @@ form p:last-child {
       transform-origin: 100% 100%;
 }
 
-[type="checkbox"].filled-in:not(:checked) + label:after {
+[type="checkbox"].filled-in:not(:checked) + .wpcf7-list-item-label:after {
   height: 20px;
   width: 20px;
   background-color: transparent;
-  border: 2px solid #5a5a5a;
+  border: 2px solid #ccc;
   top: 0px;
   z-index: 0;
 }
 
-[type="checkbox"].filled-in:checked + label:before {
+[type="checkbox"].filled-in:checked + .wpcf7-list-item-label:before {
   top: 0;
   left: 1px;
   width: 8px;
@@ -11625,42 +11643,42 @@ form p:last-child {
       transform-origin: 100% 100%;
 }
 
-[type="checkbox"].filled-in:checked + label:after {
+[type="checkbox"].filled-in:checked + .wpcf7-list-item-label:after {
   top: 0;
   width: 20px;
   height: 20px;
-  border: 2px solid #000;
-  background-color: #000;
+  border: 2px solid #ccc;
+  background-color: transparent;
   z-index: 0;
 }
 
-[type="checkbox"].filled-in.tabbed:focus + label:after {
+[type="checkbox"].filled-in.tabbed:focus + .wpcf7-list-item-label:after {
   border-radius: 2px;
   border-color: #5a5a5a;
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-[type="checkbox"].filled-in.tabbed:checked:focus + label:after {
+[type="checkbox"].filled-in.tabbed:checked:focus + .wpcf7-list-item-label:after {
   border-radius: 2px;
   background-color: #000;
   border-color: #000;
 }
 
-[type="checkbox"].filled-in:disabled:not(:checked) + label:before {
+[type="checkbox"].filled-in:disabled:not(:checked) + .wpcf7-list-item-label:before {
   background-color: transparent;
   border: 2px solid transparent;
 }
 
-[type="checkbox"].filled-in:disabled:not(:checked) + label:after {
+[type="checkbox"].filled-in:disabled:not(:checked) + .wpcf7-list-item-label:after {
   border-color: transparent;
   background-color: #BDBDBD;
 }
 
-[type="checkbox"].filled-in:disabled:checked + label:before {
+[type="checkbox"].filled-in:disabled:checked + .wpcf7-list-item-label:before {
   background-color: transparent;
 }
 
-[type="checkbox"].filled-in:disabled:checked + label:after {
+[type="checkbox"].filled-in:disabled:checked + .wpcf7-list-item-label:after {
   background-color: #BDBDBD;
   border-color: #BDBDBD;
 }
@@ -12757,6 +12775,12 @@ a:hover, a:focus {
   width: 100%;
 }
 
+@media (max-width: 991px) {
+  .underlineAnchor:hover:after, .top-menu .drop li:hover:after, #footer .footer-menu li:hover:after {
+    width: 0;
+  }
+}
+
 .back {
   margin-top: 30px;
   display: inline-block;
@@ -12850,14 +12874,28 @@ a:hover, a:focus {
   }
 }
 
-.moveArrowY, #toTop:before {
-  -webkit-animation: bounce-arrowY 2s infinite ease-in-out;
-  animation: bounce-arrowY 2s infinite ease-in-out;
+.moveArrowY:hover, #toTop:hover:before {
+  -webkit-animation: bounce-arrowY 1s infinite ease-in-out;
+  animation: bounce-arrowY 1s infinite ease-in-out;
 }
 
-.moveArrowX, .back:after {
-  -webkit-animation: bounce-arrowX 2s infinite ease-in-out;
-  animation: bounce-arrowX 2s infinite ease-in-out;
+@media (max-width: 767px) {
+  .moveArrowY:hover, #toTop:hover:before {
+    -webkit-animation: none;
+    animation: none;
+  }
+}
+
+.moveArrowX:hover, .back:hover:after {
+  -webkit-animation: bounce-arrowX 1s infinite ease-in-out;
+  animation: bounce-arrowX 1s infinite ease-in-out;
+}
+
+@media (max-width: 767px) {
+  .moveArrowX:hover, .back:hover:after {
+    -webkit-animation: none;
+    animation: none;
+  }
 }
 
 #header {
@@ -12873,24 +12911,24 @@ a:hover, a:focus {
   }
 }
 
-body.sticky {
-  margin-top: 120px;
+body {
+  padding-top: 120px;
 }
 
 @media (max-width: 479px) {
-  body.sticky {
+  body {
     margin-top: 74px;
+    margin-top: 69px;
   }
 }
 
 @media (max-width: 767px) {
-  body.sticky .top-menu .drop {
-    top: 38px;
+  body .top-menu .drop {
+    top: 60px;
   }
 }
 
-body.sticky #header {
-  padding: 5px 0;
+body #header {
   background: #fff;
   position: fixed;
   top: 0;
@@ -13047,6 +13085,12 @@ body.sticky #header {
   padding-bottom: 30px;
 }
 
+@media (max-width: 991px) {
+  #footer .copy {
+    padding-bottom: 0;
+  }
+}
+
 #footer .copy a {
   border-bottom: 1px solid #666666;
   color: #666666;
@@ -13112,30 +13156,11 @@ body.sticky #header {
   }
 }
 
-/*footer at bottom*/
-html, body {
-  height: 100%;
-  margin: 0;
-}
-
-#wrapper {
-  min-height: 100%;
-  padding: 0 0 132px;
-  /* Equal to height of footer */
-  /* But also accounting for potential margin-bottom of last child */
-  margin-bottom: -132px;
-}
-
-#footer {
-  height: 132px;
-}
-
 #toTop {
   position: fixed;
   bottom: 20px;
   right: 20px;
   opacity: 0;
-  transition: all .3s ease-in;
 }
 
 #toTop:before {
@@ -13154,6 +13179,41 @@ html, body {
 
 #toTop.active {
   opacity: 1;
+}
+
+/*footer at bottom*/
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#wrapper {
+  min-height: 100%;
+  padding: 0 0 132px;
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -132px;
+}
+
+#footer {
+  height: 132px;
+}
+
+#footer .info {
+  height: 132px;
+}
+
+@media (max-width: 479px) {
+  #wrapper {
+    padding-bottom: 380px;
+    margin-bottom: -380px;
+  }
+  #footer {
+    min-height: 380px;
+  }
+  #footer .info {
+    height: auto;
+  }
 }
 
 .slider-home {
@@ -13282,6 +13342,10 @@ html, body {
   .title-page h1 {
     padding-bottom: 30px;
   }
+}
+
+#main {
+  padding-bottom: 20px;
 }
 
 .person {
@@ -13576,11 +13640,16 @@ div.wpcf7-validation-errors {
 .input-field {
   position: relative;
   min-height: 40px;
+  color: #b2b2b2;
 }
 
 .input-field a {
   text-decoration: underline;
   /* border-bottom: 1px solid $gray; */
+}
+
+.input-field .label {
+  color: #000;
 }
 
 .input-field label {
@@ -13592,6 +13661,11 @@ div.wpcf7-validation-errors {
   cursor: text;
   transition: .2s ease-out;
   text-align: initial;
+}
+
+.input-field label[for=accept] {
+  position: static;
+  padding-left: 4px;
 }
 
 input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
@@ -13636,3 +13710,5 @@ input[type=submit] {
   position: relative;
   overflow: hidden;
 }
+
+/*# sourceMappingURL=style.css.map */
