@@ -94,6 +94,9 @@
 	bottom: 20px;;
 	right: 20px;
 	opacity: 0;
+	@include media('<phone') {
+		bottom:20px !important;
+	}
 	//transition: all .3s ease-in;
 	&:before{
 		content: '';

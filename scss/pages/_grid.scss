@@ -163,4 +163,7 @@ figure {
 article.person.grid-item:last-child{
 	bottom: 40px;
 	top: auto !important;
+	@include media('<desktop') {
+		bottom: 0;
+	}
 }
