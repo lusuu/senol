@@ -21,8 +21,10 @@
 			padding-bottom: 0;
 		}
 		a {
-			border-bottom: 1px solid $dark-gray;
 			color: $dark-gray;
+			&:hover{
+				text-decoration: underline;
+			}
 		}
 		span + span{
 			&:before{

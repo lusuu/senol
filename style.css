@@ -12639,19 +12639,14 @@ a:hover, a:focus {
 
 .fancybox-overlay {
   background: #fff;
-}
-
-@media (max-width: 767px) {
-  .fancybox-overlay {
-    z-index: 8020;
-  }
+  z-index: 8020;
 }
 
 .fancybox-close {
   background: url(images/icons/close@3x.svg.svg);
   background-size: 100%;
   right: 15px;
-  top: -35px;
+  top: -11px;
   width: 21px;
   height: 21px;
 }
@@ -12659,18 +12654,20 @@ a:hover, a:focus {
 @media (max-width: 767px) {
   .fancybox-close {
     top: -10px;
+    z-index: 998;
   }
 }
 
 .fancybox-opened .fancybox-skin {
   box-shadow: none;
   background: #fff;
+  padding: 40px 15px 15px !important;
 }
 
 .fancybox-title {
   color: #8cc542;
   position: absolute;
-  top: -33px;
+  top: -8px;
   left: 120px;
 }
 
@@ -12754,6 +12751,22 @@ a:hover, a:focus {
   background-image: url(images/icons/prev-arrow-hover@3x.svg.svg);
 }
 
+/**/
+#fancybox-thumbs {
+  overflow: inherit;
+  min-height: 54px;
+}
+
+#fancybox-thumbs ul {
+  position: absolute;
+  bottom: 0;
+  left: 50% !important;
+  z-index: 9999;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
 .underlineAnchor, .top-menu .drop li, #footer .footer-menu li {
   /*on 'anchor' holder*/
   text-decoration: none;
@@ -12796,6 +12809,10 @@ a:hover, a:focus {
   vertical-align: middle;
   background: url(images/icons/button-arrow@3x.svg.svg) no-repeat;
   background-size: 100%;
+}
+
+.back:after:hover {
+  color: #8cc542;
 }
 
 @media (max-width: 991px) {
@@ -12922,12 +12939,6 @@ body {
   }
 }
 
-@media (max-width: 767px) {
-  body .top-menu .drop {
-    top: 60px;
-  }
-}
-
 body #header {
   background: #fff;
   position: fixed;
@@ -13017,7 +13028,8 @@ body #header {
   left: 100%;
   display: inline-block;
   opacity: 0;
-  z-index: 2;
+  z-index: -1;
+  /* border: 1px solid #000; */
 }
 
 .top-menu .drop li {
@@ -13036,18 +13048,25 @@ body #header {
     left: -100%;
     width: 100%;
     top: 72px;
+    top: 0;
     font-size: 18px;
     bottom: 0;
+    padding-top: 46px;
+    padding-right: 0;
     background: #fff;
+  }
+  .top-menu .drop ul {
+    max-height: 80vh;
+    overflow: auto;
   }
   .top-menu .drop a {
     color: #8cc542;
     display: block;
-    padding: 10px 15px;
+    padding: 30px 81px 33px 15px;
   }
   .top-menu .drop li {
     display: block;
-    width: 100%;
+    /* width: 100%; */
   }
   .top-menu.active .drop {
     left: 0;
@@ -13092,8 +13111,11 @@ body #header {
 }
 
 #footer .copy a {
-  border-bottom: 1px solid #666666;
   color: #666666;
+}
+
+#footer .copy a:hover {
+  text-decoration: underline;
 }
 
 #footer .copy span + span:before {
@@ -13477,6 +13499,25 @@ figure figcaption {
   }
 }
 
+.grid .grid-item .back:hover,
+.grid-projects .grid-item .back:hover {
+  color: #8cc542;
+}
+
+.grid .grid-item .back.contact,
+.grid-projects .grid-item .back.contact {
+  position: relative;
+}
+
+.grid .grid-item .back.contact:after,
+.grid-projects .grid-item .back.contact:after {
+  position: absolute;
+  bottom: -38px;
+  left: 20px;
+  width: 41px;
+  height: 21px;
+}
+
 .grid .grid-item a:hover,
 .grid-projects .grid-item a:hover {
   color: #b2b2b2;
@@ -13596,6 +13637,11 @@ figure figcaption {
   pointer-events: none;
 }
 
+article.person.grid-item:last-child {
+  bottom: 40px;
+  top: auto !important;
+}
+
 div.wpcf7-validation-errors {
   overflow: hidden;
   margin: -40px -15px 15px;
@@ -13668,6 +13714,10 @@ div.wpcf7-validation-errors {
   padding-left: 4px;
 }
 
+.wpcf7-checkbox {
+  margin-left: -11px;
+}
+
 input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
   background-color: transparent;
   border: none;
@@ -13704,6 +13754,12 @@ input[type=submit] {
   border: none;
   float: right;
   text-transform: capitalize;
+}
+
+@media (max-width: 479px) {
+  .visible-map {
+    height: 150px !important;
+  }
 }
 
 #wrapper {

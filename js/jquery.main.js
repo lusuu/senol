@@ -1,4 +1,5 @@
-jQuery(()=>{
+
+jQuery(document).ready(function(){
 
   /*free hosting*/
   jQuery(".cbalink").hide();
@@ -250,7 +251,10 @@ function inputFocus(){
   var input = jQuery("input[type=text],input[type=email],input[type=number]")
   input.click(function(){
     jQuery(this).closest(".input-field").find("label").addClass('active');
-  })
+  });
+  input.focusin(function(){
+    jQuery(this).closest(".input-field").find("label").addClass('active');
+  });
   input.blur(function(){
     if(jQuery(this).val() == ''){
       jQuery(this).closest(".input-field").find("label").removeClass('active');

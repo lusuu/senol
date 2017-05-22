@@ -17,7 +17,7 @@ body{
   }
   @include media('<tablet') {
     .top-menu .drop{
-      top:60px
+      //top:60px
     }
   }
   #header{
@@ -99,7 +99,8 @@ body{
     left: 100%;
     display: inline-block;
     opacity: 0;
-    z-index: 2;
+    z-index: -1;
+    /* border: 1px solid #000; */
     @extend %transition;
     ul{
       @extend %listreset;
@@ -121,17 +122,24 @@ body{
       left: -100%;
       width: 100%;
       top: 72px;
+      top: 0;
       font-size: 18px;
       bottom: 0;
+      padding-top: 46px;
+      padding-right: 0;
       background: $white;
+      ul{
+        max-height: 80vh;
+        overflow: auto;
+      }
       a{
         color:$green;
         display: block;
-        padding: 10px 15px;
+        padding: 30px 81px 33px 15px;
       }
       li{
         display: block;
-        width: 100%;
+        /* width: 100%; */
       }
     }
     &.active .drop{

@@ -57,6 +57,21 @@ figure {
 		@include media('<phone') {
 			max-width: 100%;
 		}
+		.back{
+			&:hover{
+				color: $green;
+			}
+			&.contact{
+				position: relative;
+				&:after{
+					position: absolute;
+					bottom: -38px;
+					left: 20px;
+					width: 41px;
+					height: 21px;
+				}
+			}
+		}
 		a{
 			&:hover{
 				color:$gray;
@@ -144,4 +159,8 @@ figure {
 	.img-holder{
 		pointer-events:none;
 	}
+}
+article.person.grid-item:last-child{
+	bottom: 40px;
+	top: auto !important;
 }

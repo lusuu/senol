@@ -34,6 +34,9 @@
     background: url(images/icons/button-arrow@3x.svg.svg) no-repeat;
     background-size: 100%;
     @extend .moveArrowX;
+    &:hover{
+      color: $green;
+    }
   }
   @include media('<desktop') {
     margin-top: 10px;
