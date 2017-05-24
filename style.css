@@ -13467,8 +13467,8 @@ figure figcaption {
   max-width: 100%;
 }
 
-.grid .grid-item:nth-child(2n),
-.grid-projects .grid-item:nth-child(2n) {
+.grid .grid-item.right,
+.grid-projects .grid-item.right {
   -webkit-transform: translateX(125px);
       -ms-transform: translateX(125px);
           transform: translateX(125px);
@@ -13481,8 +13481,8 @@ figure figcaption {
 }
 
 @media (max-width: 991px) {
-  .grid .grid-item:nth-child(2n),
-  .grid-projects .grid-item:nth-child(2n) {
+  .grid .grid-item.right,
+  .grid-projects .grid-item.right {
     right: auto;
     left: inherit !important;
   }
@@ -13643,13 +13643,13 @@ figure figcaption {
   pointer-events: none;
 }
 
-article.person.grid-item:last-child {
+.grid article.person.grid-item:last-child {
   bottom: 40px;
   top: auto !important;
 }
 
 @media (max-width: 991px) {
-  article.person.grid-item:last-child {
+  .grid article.person.grid-item:last-child {
     bottom: 0;
   }
 }

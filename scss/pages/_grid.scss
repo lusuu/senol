@@ -32,12 +32,14 @@ figure {
 
 .grid,
 .grid-projects{
+	//margin-right: -10px;
 	.grid-item { 
 		width: 375px; 
+		
 		padding: 0 40px 40px 0;
 		margin-bottom: 10px;
 		img{max-width: 100%}
-		&:nth-child(2n){
+		&.right{
 			transform: translateX(125px);
 			right: 0;
 			left: auto !important;
@@ -160,7 +162,7 @@ figure {
 		pointer-events:none;
 	}
 }
-article.person.grid-item:last-child{
+.grid article.person.grid-item:last-child{
 	bottom: 40px;
 	top: auto !important;
 	@include media('<desktop') {

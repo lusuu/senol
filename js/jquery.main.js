@@ -112,6 +112,11 @@ function projectsGrid(){
         itemSelector: '.grid-item',
         columnWidth: 430
       });
+      jQuery(".grid-item").each(function(){
+        if(parseInt(jQuery(this).css("left"))>0){
+            jQuery(this).addClass('right');
+        }
+      })
     } else {
       console.log("false")
       if (masonary != null)
